@@ -1,16 +1,6 @@
-//username
-//unique
-//req
-//trimmed
-
-//email
-//string
-//req
-//unique
-//validate email (mogo)
-
 //define
 const { Schema, model } = require("mongoose");
+const Thought = require("./Thought");
 
 const userSchema = new Schema(
   {

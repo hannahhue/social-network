@@ -1,9 +1,5 @@
-//text
-//string
-//req
-//char limit
-
 const { Schema, model } = require("mongoose");
+const reaction = require("./Reaction");
 
 const thoughtSchema = new Schema(
   {
