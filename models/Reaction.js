@@ -1,5 +1,7 @@
+//define
 const { Schema } = require("mongoose");
 
+//schema model
 const reactionSchema = new Schema(
   {
     reactionId: {
@@ -31,4 +33,5 @@ const reactionSchema = new Schema(
   }
 );
 
+//export
 module.exports = reactionSchema;
