@@ -50,8 +50,7 @@ module.exports = {
   async deleteUser(req, res) {
     try {
       const deleteUserData = await User.findOneAndDelete(
-        { _id: req.body.userId },
-        { $set: req.body },
+        { _id: req.params.userId },
         { new: true }
       );
       await Thought.deleteMany({ _id: { $in: deleteUserData.thoughts } });
