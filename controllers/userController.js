@@ -67,6 +67,11 @@ module.exports = {
         { $addToSet: { friends: req.params.friendId } },
         { new: true }
       );
+      await User.findOneAndUpdate(
+        { _id: req.params.friendId },
+        { $addToSet: { friends: req.params.userId } },
+        { new: true }
+      );
       res.status(200).json(friendData);
     } catch (err) {
       res.status(500).json(err);
@@ -78,6 +83,11 @@ module.exports = {
       const deleteFriendData = await User.findOneAndRemove(
         { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
+        { new: true }
+      );
+      await User.findOneAndRemove(
+        { _id: req.params.friendId },
+        { $pull: { friends: req.params.userId } },
         { new: true }
       );
       res.status(200).json(deleteFriendData);
