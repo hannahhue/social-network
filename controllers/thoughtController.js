@@ -39,8 +39,6 @@ module.exports = {
         { $set: req.body },
         { new: true }
       );
-      console.log("hiiiii");
-      console.log(updateThoughtData);
       res.status(200).json(updateThoughtData);
     } catch (err) {
       res.status(500).json(err);
