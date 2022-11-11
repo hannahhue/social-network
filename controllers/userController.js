@@ -75,7 +75,7 @@ module.exports = {
   //delte frineds
   async deleteFriend(req, res) {
     try {
-      const deleteFriendData = await User.findOneAndDelete(
+      const deleteFriendData = await User.findOneAndRemove(
         { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
         { new: true }
