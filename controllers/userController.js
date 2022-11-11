@@ -80,12 +80,12 @@ module.exports = {
   //delte frineds
   async deleteFriend(req, res) {
     try {
-      const deleteFriendData = await User.findOneAndRemove(
+      const deleteFriendData = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $pull: { friends: req.params.friendId } },
         { new: true }
       );
-      await User.findOneAndRemove(
+      await User.findOneAndUpdate(
         { _id: req.params.friendId },
         { $pull: { friends: req.params.userId } },
         { new: true }
